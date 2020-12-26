@@ -40,7 +40,7 @@ def scrap_books_urls(response, url_page):
     list_urls_books_2 = list_urls_books[::2]
     return list_urls_books_2
 
-def scrap_book_information(list_urls_books, title_category):
+def scrap_book_information(list_urls_books, title_category,url_books_imgs,titles_imgs):
     titres = []
     p_d = []
     upc_s = []
@@ -97,16 +97,18 @@ def scrap_book_information(list_urls_books, title_category):
             review_rating = str(review_rating.text)
 
             review_rate.append(review_rating)
-            
+
             imgs = soup.find('div', attrs={'class': 'item active'}).find('img')
             img1 = imgs.attrs["src"]
             imgs_url = img1.replace('../..', 'http://books.toscrape.com')
                 
             book_img_title = title_category + '_' + titre
-            img_url_title = [imgs_url, book_img_title]
-            imgs_urls.append(img_url_title)
+            #img_url_title = [imgs_url, book_img_title]
+            imgs_urls.append(imgs_url)
+            url_books_imgs.append(imgs_url)
+            titles_imgs.append(book_img_title)
             #titre_image_livre = titre_image_livre.replace('/[&\/\\#,+()$~%.'":*?<>{}]/g', '_')
-            data_book_csv = [titre, product_description,universal_product_code, price_including_tax, price_excluding_tax, number_available, review_rating, product_page_url]
+            #data_book_csv = [titre, product_description,universal_product_code, price_including_tax, price_excluding_tax, number_available, review_rating, product_page_url]
     data_category = {'Titre' : titres, 'Product description' : p_d, 'Universal product code' : upc_s, 'Price including tax in £' : prix_tax, 'Price excluding tax in £' : prix_notax, 'Number available' : num_avail, 'Review rating' : review_rate, 'Product page url' : p_d_urls, 'Images Urls' : imgs_urls}
     
     raw_data_category = [data_category, imgs_urls]

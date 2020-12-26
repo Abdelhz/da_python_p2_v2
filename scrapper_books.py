@@ -9,10 +9,10 @@ categories_folder = folder_mod.chemin_dossier(path_file, 'Book_to_scrap')
 images_folder = folder_mod.chemin_dossier(categories_folder, 'books_images')
 folder_mod.creer_dossier(categories_folder)
 folder_mod.creer_dossier(images_folder)
-
+url_books_imgs = []
+titles_imgs = []
 def category_csv(list_url_categories):
     category_number = 0
-    url_books_images = []
     for url in list_url_categories:
         category_number = category_number + 1
         category_number_str = str(category_number)
@@ -22,12 +22,14 @@ def category_csv(list_url_categories):
         raw_new_scrap_category = raww_scrap_category[0]
         filename_category_csv = raww_scrap_category[1]
         dictionary = raw_new_scrap_category[0]
-        list_urls_img = raww_scrap_category[1]
-        for list_img in list_urls_img:
-            url_books_images.append(list_img)
+        #list_urls_img = raww_scrap_category[1]
+        print('\n\n')
+        print('finished category number' + category_number_str)
         file_saver.create_csv(dictionary, filename_category_csv)
-        
-    file_saver.create_img(url_books_images, images_folder)
+    for i in range(len(url_books_imgs)):
+        url_img = url_books_imgs = [i]
+        title_img = titles_imgs = [i]
+        file_saver.create_img(url_img, title_img, images_folder)
 
     #file_saver.create_img(url_books_images, images_folder)
     #saving_images(urls, titles)
@@ -51,7 +53,7 @@ def books_scrapper(urls_category, number):
     list_url_books = urls_mod.scrap_books_urls(response1, url_page)
     
     
-    raw_scrap_category = urls_mod.scrap_book_information(list_url_books, title_category)
+    raw_scrap_category = urls_mod.scrap_book_information(list_url_books, title_category,url_books_imgs,titles_imgs)
 
     return raw_scrap_category, filename_category_csv
     
