@@ -37,6 +37,8 @@ print(len(url_books_imgs))
 for i in range(len(url_books_imgs)):
     url_img = url_books_imgs = [i]
     title_img = titles_imgs = [i]
+    print(url_img)
+    print(title_img)
     file_saver.create_img(url_img, title_img, images_folder)
 
     #file_saver.create_img(url_books_images, images_folder)
