@@ -17,7 +17,7 @@ def category_csv(list_url_categories):
         category_number = category_number + 1
         category_number_str = str(category_number)
         
-        raww_scrap_category = books_scrapper(url, category_number_str)
+        raww_scrap_category = books_scrapper(url, category_number_str, url_books_imgs, titles_imgs)
         
         raw_new_scrap_category = raww_scrap_category[0]
         filename_category_csv = raww_scrap_category[1]
@@ -26,15 +26,23 @@ def category_csv(list_url_categories):
         print('\n\n')
         print('finished category number' + category_number_str)
         file_saver.create_csv(dictionary, filename_category_csv)
-    for i in range(len(url_books_imgs)):
-        url_img = url_books_imgs = [i]
-        title_img = titles_imgs = [i]
-        file_saver.create_img(url_img, title_img, images_folder)
+        print('\n\n\n')
+        print('------------------------------------------')
+        print(*url_books_imgs, sep = "\n")
+        print('\n\n\n')
+        print('------------------------------------------')
+        print(*titles_imgs, sep = "\n")
+        print('------------------------------------------')
+print(len(url_books_imgs))
+for i in range(len(url_books_imgs)):
+    url_img = url_books_imgs = [i]
+    title_img = titles_imgs = [i]
+    file_saver.create_img(url_img, title_img, images_folder)
 
     #file_saver.create_img(url_books_images, images_folder)
     #saving_images(urls, titles)
 
-def books_scrapper(urls_category, number):
+def books_scrapper(urls_category, number, url_books_imgs,titles_imgs):
     url_current = urls_category
     url_page = urls_category[:-10]
     response0 = requests.get(urls_category)
