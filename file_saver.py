@@ -8,11 +8,13 @@ chars = '\\:;,\'"`*{}[]()>#+-.!$?/^¨£¤µ~|@ '
 def create_img(url_books_image, title_image, images_folder):
     # url_img = url_books_images[0]
     # title_img = url_books_images[1]
+    chars = '\\:;,\'"`*{}[]()>#+-.!$?/^¨£¤µ~|@ '
     for c in chars:
-        title_img = title_image.replace(c, '_')
+        title_image = title_image.replace(c, '_')
+        title_image = title_image.replace('__', '_')
     try:
-        urllib.request.urlretrieve(url_books_image, os.path.join(images_folder, os.path.basename(title_img + ".jpg")))
-        print("Image : "+ title_img + " is saved", "\n" )
+        urllib.request.urlretrieve(url_books_image, os.path.join(images_folder, os.path.basename(title_image + ".jpg")))
+        print("Image : "+ title_image + " is saved", "\n" )
     except HTTPError:
         print("HTTP Error, Image not available\n")
     except URLError:

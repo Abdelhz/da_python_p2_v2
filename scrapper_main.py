@@ -11,3 +11,4 @@ print(*url_categories_list, sep = "\n")
 print("---------------------------------------", "\n\n\n")
 
 scrapper_books.category_csv(url_categories_list)
+scrapper_books.category_img()

@@ -11,6 +11,7 @@ folder_mod.creer_dossier(categories_folder)
 folder_mod.creer_dossier(images_folder)
 url_books_imgs = []
 titles_imgs = []
+
 def category_csv(list_url_categories):
     category_number = 0
     for url in list_url_categories:
@@ -33,13 +34,31 @@ def category_csv(list_url_categories):
         print('------------------------------------------')
         print(*titles_imgs, sep = "\n")
         print('------------------------------------------')
-print(len(url_books_imgs))
-for i in range(len(url_books_imgs)):
-    url_img = url_books_imgs = [i]
-    title_img = titles_imgs = [i]
-    print(url_img)
-    print(title_img)
-    file_saver.create_img(url_img, title_img, images_folder)
+
+def category_img():
+    print('\n\n\n')
+    print('------------------------------------------')
+    print('------------------------------------------')
+    print('------------------------------------------')
+    print(len(url_books_imgs))
+    print('\n\n\n')
+    print('------------------------------------------')
+    print(images_folder)
+    print('\n\n\n')
+    print('------------------------------------------')
+    print('------------------------------------------')
+    print('------------------------------------------')
+
+    for i in range(len(url_books_imgs)):
+        url_img = url_books_imgs[i]
+        title_img = titles_imgs[i]
+        print('\n\n\n')
+        print('------------------------------------------')
+        print(url_img)
+        print('\n\n\n')
+        print('------------------------------------------')
+        print(title_img)
+        file_saver.create_img(url_img, title_img, images_folder)
 
     #file_saver.create_img(url_books_images, images_folder)
     #saving_images(urls, titles)
