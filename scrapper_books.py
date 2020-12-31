@@ -82,7 +82,7 @@ def books_scrapper(urls_category, number, url_books_imgs,titles_imgs):
     list_url_books = urls_mod.scrap_books_urls(response1, url_page)
     
     
-    raw_scrap_category = urls_mod.scrap_book_information(list_url_books, title_category,url_books_imgs,titles_imgs)
+    raw_scrap_category = urls_mod.scrap_book_information(list_url_books, title_category, url_books_imgs, titles_imgs)
 
     return raw_scrap_category, filename_category_csv
     

@@ -29,25 +29,3 @@ print("Directory", path2)
 print("\n\n")
 
 
-"""
-dossier_category = os.path.join(path_file, 'dossier_category')
-dossier_images = os.path.join(dossier_category, 'Images_books')
-
-if not os.path.exists(dossier_category):
-    os.makedirs(dossier_category)
-
-if not os.path.exists(dossier_images):
-    os.makedirs(dossier_images)
-#print(dossier_category)
-
-
-dossier_sous_categorie = os.path.join(dossier_category, title_category_folder)
-
-filename_category_csv = os.path.join(dossier_sous_categorie, title_category)
-
-dossier_images_sous_categorie = os.path.join(dossier_sous_categorie, 'images_livres')
-    if not os.path.exists(dossier_sous_categorie):
-        os.makedirs(dossier_sous_categorie)
-    if not os.path.exists(dossier_images_sous_categorie):
-        os.makedirs(dossier_images_sous_categorie)
-"""
