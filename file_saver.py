@@ -19,4 +19,4 @@ def create_img(url_books_image, title_image, images_folder):
 
 def create_csv(data_category_csv, filename_category_csv):
     df_category = pd.DataFrame(data_category_csv) #create data frame for the csv file
-    df_category.to_csv(filename_category_csv + '.csv', encoding = 'utf-8') # create csv file using dataframe and name encoded in UTF-8
+    df_category.to_csv(filename_category_csv + '.csv', encoding = 'utf-8-sig') # create csv file using dataframe and name. dataframe encoded in UTF-8

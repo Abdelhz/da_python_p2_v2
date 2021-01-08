@@ -48,7 +48,7 @@ def books_scrapper(urls_category, number, url_books_imgs,titles_imgs): #methodes
     response0 = requests.get(urls_category)
     response1 = requests.get(url_current)
     if response0.ok:
-        soup0 = BeautifulSoup(response0.text, 'lxml')
+        soup0 = BeautifulSoup(response0.content, 'html.parser')
         title_category = soup0.find('div', attrs={'class': 'page-header action'}).find('h1')
         title_category = str(title_category.text)
         title_category_folder = number + "_" + title_category
