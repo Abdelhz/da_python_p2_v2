@@ -34,7 +34,7 @@ We are using many libraries for this project thats have to be installed manually
 
 *install numpy :*
 
-**pip install numpy==1.19.3*  *The version 1.19.4 of numpy causes errors when executing*
+**pip install numpy==1.19.3**  *The version 1.19.4 of numpy causes errors when executing*
 
 *install BeautifulSoup :*
 
